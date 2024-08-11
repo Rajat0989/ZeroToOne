@@ -20,7 +20,7 @@ const Hero = () => {
           className={`${montserrat.className} text-3xl md:text-5xl xl:text-7xl relative z-20 my-6 md:my-16 mx-8 lg:mx-16 xl:mx-32 text-center text-slate-900 tracking-tight group`}
         >
           The{" "}
-          <p className="text-blue-600 group-hover:-translate-y-3 duration-300 transition-all delay-75 ease-in-out inline-block">
+          <p className="text-blue-600 group-hover:-translate-y-3 duration-300 transition-all ease-in-out inline-block">
             Only
           </p>{" "}
           Solution for

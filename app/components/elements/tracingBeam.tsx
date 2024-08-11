@@ -1,35 +1,35 @@
-"use client";
-import React, { useEffect, useRef, useState } from "react";
+"use client"
+import React, { useEffect, useRef, useState } from "react"
 import {
   motion,
   useTransform,
   useScroll,
   useVelocity,
   useSpring,
-} from "framer-motion";
-import { cn } from "@/lib/utils";
+} from "framer-motion"
+import { cn } from "@/lib/utils"
 
 export const TracingBeam = ({
   children,
   className,
 }: {
-  children: React.ReactNode;
-  className?: string;
+  children: React.ReactNode
+  className?: string
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
-  });
+  })
 
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [svgHeight, setSvgHeight] = useState(0);
+  const contentRef = useRef<HTMLDivElement>(null)
+  const [svgHeight, setSvgHeight] = useState(0)
 
   useEffect(() => {
     if (contentRef.current) {
-      setSvgHeight(contentRef.current.offsetHeight);
+      setSvgHeight(contentRef.current.offsetHeight)
     }
-  }, []);
+  }, [])
 
   const y1 = useSpring(
     useTransform(scrollYProgress, [0, 0.8], [50, svgHeight]),
@@ -37,21 +37,18 @@ export const TracingBeam = ({
       stiffness: 500,
       damping: 90,
     }
-  );
+  )
   const y2 = useSpring(
     useTransform(scrollYProgress, [0, 1], [50, svgHeight - 200]),
     {
       stiffness: 500,
       damping: 90,
     }
-  );
+  )
 
   return (
-    <motion.div
-      ref={ref}
-      className={cn("relative w-full max-w-4xl mx-auto h-full", className)}
-    >
-      <div className="absolute -left-4 md:-left-20 top-3">
+    <motion.div ref={ref} className={cn("relative w-full h-full", className)}>
+      <div className="z-50 absolute -left-3 md:-left-8 top-4">
         <motion.div
           transition={{
             duration: 0.2,
@@ -116,13 +113,13 @@ export const TracingBeam = ({
             >
               <stop stopColor="#18CCFC" stopOpacity="0"></stop>
               <stop stopColor="#18CCFC"></stop>
-              <stop offset="0.325" stopColor="#6344F5"></stop>
-              <stop offset="1" stopColor="#AE48FF" stopOpacity="0"></stop>
+              <stop offset="0.325" stopColor="#2563eb"></stop>
+              <stop offset="1" stopColor="#2563eb" stopOpacity="0"></stop>
             </motion.linearGradient>
           </defs>
         </svg>
       </div>
       <div ref={contentRef}>{children}</div>
     </motion.div>
-  );
-};
+  )
+}
