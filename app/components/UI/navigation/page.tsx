@@ -1,11 +1,50 @@
+import { Button } from "../../elements/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/elements/dropdown-menu"
+import Logo from "../../../assets/logo.svg"
+import { Chivo } from "next/font/google"
 
+const chivo = Chivo({ weight: "800", subsets: ["latin"] })
 
-const page = () => {
+const Nav = () => {
   return (
-    <div>
-      
+    <div className="h-[4rem] md:h-[5rem] xl:h-[6rem] w-full border-b flex justify-center items-center">
+      <div className="h-[3rem] max-w-[1536px] w-full flex items-center">
+        <div className="w-full flex justify-between items-center px-6 text-lg">
+          <div className="flex items-center">
+            <Logo />
+            <p className={`${chivo.className} text-2xl px-3`}>flow.ai</p>
+          </div>
+          <div className="md:flex items-center gap-x-2 hidden ">
+            <div className="px-5 py-2 hover:bg-[#e6e4d9] rounded-md transition duration-200 ease-linear">
+              <a href="/">Product</a>
+            </div>
+            <div className="px-5 py-2 hover:bg-[#e6e4d9] rounded-md transition duration-200 ease-linear">
+              <a href="/">Learn</a>
+            </div>
+            <div className="px-5 py-2 hover:bg-[#e6e4d9] rounded-md transition duration-200 ease-linear">
+              <a href="/">About</a>
+            </div>
+          </div>
+          <div className="hidden md:flex">
+            <Button
+              variant={"outline"}
+              className="bg-white mr-5 rounded-full border-slate-300 border-[1px] p-6"
+            >
+              Login
+            </Button>
+            <Button className="bg-blue-600 rounded-full hover:bg-blue-800 p-6">
+              Sign Up
+            </Button>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
 
-export default page
+export default Nav
