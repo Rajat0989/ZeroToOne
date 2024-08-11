@@ -27,12 +27,12 @@ const Hero = () => {
           <br /> your Project Management
         </div>
 
-        <div className="text-base md:text-2xl font-semibold">
+        <div className="text-base md:text-xl font-semibold">
           <HoverBorderGradient
             containerClassName="rounded-full"
             clockwise={true}
             duration={1}
-            className="text-slate-900 bg-white flex items-center px-6 py-3"
+            className="text-slate-900 bg-white flex items-center px-5 py-2"
           >
             Get Started
           </HoverBorderGradient>

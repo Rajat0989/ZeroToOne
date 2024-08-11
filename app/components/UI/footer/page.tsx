@@ -14,7 +14,7 @@ const Footer = () => {
               Getting Started
             </div>
             <ul className="text-slate-500 flex flex-col gap-y-1 text-sm">
-              <li>What's New</li>
+              <li>What&apos;s New</li>
               <li></li>
               <li></li>
               <li></li>
@@ -56,7 +56,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center mt-6">
           <Logo />
           <p className={`${chivo.className} text-2xl px-3`}>flowx.ai</p>
         </div>
