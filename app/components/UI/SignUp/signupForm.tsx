@@ -38,7 +38,8 @@ export default function SignupFormDemo() {
     else{
       setButtonDisabled(true);
     }
-  })
+  },[user.email.length, user.password.length, user.firstname.length, user.lastname.length])
+
   return (
     <div className="max-w-lg w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
       <h2 className="text-4xl text-slate-900 dark:text-neutral-200">Sign up</h2>
