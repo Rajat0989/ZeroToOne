@@ -1,15 +1,44 @@
 "use client"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Label } from "./label"
 import { Input } from "./input"
 import { cn } from "@/lib/utils"
+import axios from 'axios'
 import { IconBrandGithub, IconBrandGoogle } from "@tabler/icons-react"
 
 export default function SignupFormDemo() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [user, setUser] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: ""
+  });
+
+
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [loading, setLoading] = useState(false);
+ 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    try{
+      setLoading(true);
+      const response = await axios.post("/api/users/signup", user);
+      console.log("Signup success", response.data);
+    }catch(error: any){
+      console.log("Signup failed", error);
+    }
     console.log("Form submitted")
   }
+
+  useEffect(() => {
+    if(user.email.length > 0 && user.password.length > 0 && user.firstname.length > 0 && user.lastname.length > 0){
+      setButtonDisabled(false);
+    }
+    else{
+      setButtonDisabled(true);
+    }
+  })
   return (
     <div className="max-w-lg w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
       <h2 className="text-4xl text-slate-900 dark:text-neutral-200">Sign up</h2>
@@ -18,20 +47,20 @@ export default function SignupFormDemo() {
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="firstname">First name</Label>
-            <Input id="firstname" placeholder="Tyler" type="text" />
+            <Input id="firstname" placeholder="Tyler" type="text" onChange={(e) => setUser({...user, firstname: e.target.value})} />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname">Last name</Label>
-            <Input id="lastname" placeholder="Durden" type="text" />
+            <Input id="lastname" placeholder="Durden" type="text" onChange={(e) => setUser({...user, lastname: e.target.value})} />
           </LabelInputContainer>
         </div>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
+          <Input id="email" placeholder="projectmayhem@fc.com" type="email" onChange={(e) => setUser({...user, email: e.target.value})} />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
-          <Input id="password" placeholder="••••••••" type="password" />
+          <Input id="password" placeholder="••••••••" type="password" onChange={(e) => setUser({...user, password: e.target.value})} />
         </LabelInputContainer>
 
         <button
