@@ -1,6 +1,7 @@
 import { Button } from "../button"
 import Logo from "../../../public/logo/logo.svg"
 import { Chivo } from "next/font/google"
+import Link from "next/link"
 
 const chivo = Chivo({ weight: "800", subsets: ["latin"] })
 
@@ -25,15 +26,19 @@ const Nav = () => {
             </div>
           </div>
           <div className="hidden md:flex">
+          <Link href='/components/Login'>
             <Button
               variant={"outline"}
               className="bg-white mr-5 rounded-full border-slate-300 border-[1px] p-6"
             >
-              Login
+                Login
             </Button>
-            <Button className="bg-blue-600 rounded-full hover:bg-blue-800 p-6">
-              Sign Up
-            </Button>
+            </Link>
+            <Link href='/components/SignUp'>
+              <Button className="bg-blue-600 rounded-full hover:bg-blue-800 p-6">
+                Sign Up
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
