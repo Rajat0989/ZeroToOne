@@ -1,6 +1,6 @@
 import React from "react"
 import { Montserrat } from "next/font/google"
-import { HoverBorderGradient } from "@/components/elements/hoverBorderGradient"
+import { HoverBorderGradient } from "@/components/hoverBorderGradient"
 
 const montserrat = Montserrat({ weight: "800", subsets: ["latin"] })
 

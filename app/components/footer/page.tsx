@@ -1,4 +1,4 @@
-import Logo from "../../../assets/logo.svg"
+import Logo from "../../../public/logo/logo.svg"
 import { Chivo } from "next/font/google"
 
 const chivo = Chivo({ weight: "800", subsets: ["latin"] })

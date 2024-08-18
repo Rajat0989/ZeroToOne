@@ -1,5 +1,5 @@
-import { Button } from "../../elements/button"
-import Logo from "../../../assets/logo.svg"
+import { Button } from "../button"
+import Logo from "../../../public/logo/logo.svg"
 import { Chivo } from "next/font/google"
 
 const chivo = Chivo({ weight: "800", subsets: ["latin"] })

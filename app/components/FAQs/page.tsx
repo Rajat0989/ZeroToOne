@@ -3,7 +3,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/elements/accordion"
+} from "@/components/accordion"
 
 const FAQs = () => {
   return (
@@ -11,7 +11,10 @@ const FAQs = () => {
       <div>
         <h3 className="text-5xl font-semibold text-slate-900 mb-2">FAQs</h3>
         <p className="mb-4 text-base text-slate-500">
-          Don&apos;t see your question? <a href="/" className="hover:underline">click here</a>
+          Don&apos;t see your question?{" "}
+          <a href="/" className="hover:underline">
+            click here
+          </a>
         </p>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">

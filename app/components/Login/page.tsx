@@ -1,6 +1,6 @@
-import SignupFormDemo from "./Login"
+import SignupFormDemo from "./form"
 import { Chivo } from "next/font/google"
-import Logo from "@/assets/logo.svg"
+import Logo from "../../../public/logo/logo.svg"
 
 const chivo = Chivo({ weight: "800", subsets: ["latin"] })
 
