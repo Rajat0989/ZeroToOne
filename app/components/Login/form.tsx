@@ -3,10 +3,11 @@ import React, { useEffect, useState } from "react"
 import { Label } from "./label"
 import { Input } from "./input"
 import { cn } from "@/lib/utils"
-import { IconBrandGithub, IconBrandGoogle } from "@tabler/icons-react"
-import { auth } from '../../firebase'
 import axios from "axios"
-import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth"
+import { GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from 'firebase/auth'
+import Github from "../../../public/icons/github.svg"
+import {auth} from '../../firebase'
+import Google from "../../../public/icons/google.svg"
 
 export default function SignupFormDemo() {
   const [user, setUser] = useState({
@@ -96,7 +97,7 @@ export default function SignupFormDemo() {
             type="submit"
             onClick={() => handleOAuthLogin("github")}
           >
-            <IconBrandGithub className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
+            <Github className="h-8 w-8 text-neutral-800 dark:text-neutral-300" />
             <span className="text-neutral-700 dark:text-neutral-300 text-sm">
               Continue with GitHub
             </span>
@@ -106,7 +107,7 @@ export default function SignupFormDemo() {
             type="submit"
             onClick={() => handleOAuthLogin("google")}
           >
-            <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
+            <Google className="h-8 w-8 text-neutral-800 dark:text-neutral-300" />
             <span className="text-neutral-700 dark:text-neutral-300 text-sm">
               Continue with Google
             </span>
