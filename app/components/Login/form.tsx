@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 import axios from "axios"
 import { GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from 'firebase/auth'
 import Github from "../../../public/icons/github.svg"
-import {auth} from '../../firebase'
+import {auth} from '../../../firebase/firebase'
 import Google from "../../../public/icons/google.svg"
 
 export default function SignupFormDemo() {

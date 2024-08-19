@@ -6,7 +6,8 @@ const chivo = Chivo({ weight: "800", subsets: ["latin"] })
 const Footer = () => {
   return (
     <div className="h-full w-full border-t border-slate-300 flex items-center justify-center">
-      <div className="h-full w-full max-w-[1280px] min-w-[440] m-8">
+      <div className="h-full w-full max-w-[1280px] min-w-[440]">
+        <div className="m-8">
         <div className=""></div>
         <div className="flex justify-between flex-wrap gap-x-3">
           <div>
@@ -59,6 +60,7 @@ const Footer = () => {
         <div className="flex items-center mt-6">
           <Logo />
           <p className={`${chivo.className} text-2xl px-3`}>flowx.ai</p>
+        </div>
         </div>
       </div>
     </div>

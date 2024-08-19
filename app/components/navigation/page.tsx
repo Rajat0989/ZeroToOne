@@ -24,8 +24,7 @@ const Nav = () => {
             <div className="px-5 py-2 hover:bg-[#e6e4d9] rounded-md transition duration-200 ease-linear">
               <a href="/">About</a>
             </div>
-          </div>
-          <div className="hidden md:flex gap-x-4">
+            <div className="hidden md:flex gap-x-4">
             <Button variant={"outline"} className="bg-white rounded-full">
               Login
             </Button>
@@ -33,6 +32,8 @@ const Nav = () => {
               Sign Up
             </Button>
           </div>
+          </div>
+          
         </div>
       </div>
     </div>

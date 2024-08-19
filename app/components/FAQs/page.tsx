@@ -7,8 +7,8 @@ import {
 
 const FAQs = () => {
   return (
-    <div className="w-full h-full max-w-[1280px] min-w-[440px] px-8 my-16">
-      <div>
+    <div className="w-full h-full max-w-[1280px] min-w-[440px] my-16">
+      <div className="mx-8">
         <h3 className="text-5xl font-semibold text-slate-900 mb-2">FAQs</h3>
         <p className="mb-4 text-base text-slate-500">
           Don&apos;t see your question?{" "}
