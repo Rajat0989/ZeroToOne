@@ -1,4 +1,4 @@
-import SignupFormDemo from "./form"
+import SignupFormDemo from "../../components/SignUp/form"
 import { Chivo } from "next/font/google"
 import Logo from "../../../public/logo/logo.svg"
 

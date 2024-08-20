@@ -25,12 +25,16 @@ const Nav = () => {
               <a href="/">About</a>
             </div>
             <div className="hidden md:flex gap-x-4">
-            <Button variant={"outline"} className="bg-white rounded-full">
-              Login
-            </Button>
-            <Button className="bg-blue-600 rounded-full hover:bg-blue-800">
-              Sign Up
-            </Button>
+              <Link href='/pages/login'>
+                <Button variant={"outline"} className="bg-white rounded-full">
+                  Login
+                </Button>
+              </Link>
+              <Link href='/pages/signup'>
+                <Button className="bg-blue-600 rounded-full hover:bg-blue-800">
+                  Sign Up
+                </Button>
+              </Link>
           </div>
           </div>
           
