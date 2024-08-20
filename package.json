@@ -12,6 +12,7 @@
     "@huggingface/inference": "^2.8.0",
     "@langchain/community": "^0.2.28",
     "@langchain/core": "^0.2.27",
+    "@langchain/google-genai": "^0.0.26",
     "@langchain/textsplitters": "^0.0.3",
     "@modelfusion/vercel-ai": "^1.1.0",
     "@next/font": "^14.2.5",
