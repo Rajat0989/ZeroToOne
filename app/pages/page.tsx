@@ -1,10 +1,9 @@
-import Login from "@/components/login/page"
-import SignUp from "@/components/signup/page"
+import Dashboard from "../pages/dashboard/page"
 
 const page = () => {
   return (
     <div className="">
-      <SignUp></SignUp>
+      <Dashboard />
     </div>
   )
 }

@@ -1,9 +1,11 @@
-import React from 'react'
+import DashboardMain from "@/components/dashboard_main/page"
+import DashboardSidebar from "@/components/dashboard_sidebar/page"
 
 const Dashboard = () => {
   return (
-    <div>
-      
+    <div className="h-screen w-full flex">
+      <DashboardSidebar/>
+      <DashboardMain/>
     </div>
   )
 }
