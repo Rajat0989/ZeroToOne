@@ -1,4 +1,4 @@
-import SignupFormDemo from "../../components/SignUp/form"
+import SignupForm from "../../components/signup/form"
 import { Chivo } from "next/font/google"
 import Logo from "../../../public/logo/logo.svg"
 
@@ -12,7 +12,7 @@ const SignUp = () => {
           <Logo />
           <p className={`${chivo.className} text-2xl px-3`}>flowx.ai</p>
         </div>
-        <SignupFormDemo />
+        <SignupForm />
       </div>
     </div>
   )
