@@ -1,5 +1,6 @@
 import { PromptTemplate } from "@langchain/core/prompts"
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai"
+import flowchart from './syntax/flowchart.md'
 
 export const generate = async ({ input, selectedTemplate }: any) => {
     try{
@@ -18,14 +19,10 @@ export const generate = async ({ input, selectedTemplate }: any) => {
         const chain = prompt.pipe(model);
 
         //@ts-ignore
-        const synataxDoc = await import(
-            `./syntax/${selectedTemplate.toLowerCase()}.md`
-        );
-
         const res = await chain.invoke({
             template: selectedTemplate,
             input: input,
-            syntax: synataxDoc.default,
+            syntax: flowchart,
             instructions: `
             - use different shapes, colors and also use icons when possible as mentioned in the doc.
             - strict rules: do not add Note and do not explain the code and do not add any additional text except code, 
