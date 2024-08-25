@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.17.1",
     "@huggingface/inference": "^2.8.0",
     "@langchain/community": "^0.2.28",
     "@langchain/core": "^0.2.27",
