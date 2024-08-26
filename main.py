@@ -2,12 +2,16 @@ from fastapi import FastAPI
 from github import Github
 from pydantic import BaseModel
 import uvicorn
+from crewai_tools import SerperDevTool, YoutubeVideoSearchTool, WebsiteSearchTool, YoutubeChannelSearchTool, ScrapeWebsiteTool
 from langchain_google_genai import ChatGoogleGenerativeAI
-from crewai import Agent, Task, Crew
+from crewai import Agent, Task, Crew, Process
 
-llm = ChatGoogleGenerativeAI(model='gemini-1.5-pro', google_api_key="AIzaSyDZ4x04Xflo3gWzlYp0pwZX_puLsruXNTg")
+llm = ChatGoogleGenerativeAI(model='gemini-1.5-pro', google_api_key="AIzaSyAL8tUpMNKe8xuJv_R4Jm1EW_Ti7cAdUQs")
 
 app = FastAPI()
+
+class Task(BaseModel):
+    description: str
 
 class CodeRequest(BaseModel):
     access_token: str
@@ -43,7 +47,7 @@ async def get_code_ask_question(request_data: CodeRequest):
     prompt = f"You are the best coder and have a great knowledge about programming. You can analyze large repositories and code bases very easily. User will ask {question} which is based on {code_files}. Your job is to give as accurate an answer as possible to the question."
     qa_agent = Agent(
         role="Code Analyzer agent",
-        goal="To answer user queries on the given code base in the most accurate way possible",
+        goal="""To answer user queries on the given code base in the most accurate way possible""",
         backstory=prompt,
         verbose=True,
         llm=llm
@@ -52,7 +56,7 @@ async def get_code_ask_question(request_data: CodeRequest):
     qa_task = Task(
         description=f"Answer user's {question} based on {code_files} as accurately as possible",
         agent=qa_agent,
-        expected_output="Accurate answers to user's questions based on code base"
+        expected_output="Accurate answers to user's questions based on code base",
     )
 
     crew = Crew(
@@ -61,6 +65,51 @@ async def get_code_ask_question(request_data: CodeRequest):
         verbose=True
     )
 
+    result = crew.kickoff()
+    result_str = str(result)
+
+    return {'response': result_str}
+
+from crewai import Agent, Task, Crew
+from crewai_tools import SerperDevTool
+
+@app.post('/get_everything')
+async def get_everything():
+    question = input("Enter a question: ")
+    question = str(question)
+
+    # Ensure llm is correctly initialized
+    if llm is None:
+        return {'response': 'LLM not initialized'}
+
+    # Web Search Agent
+    web_search_prompt = f"You are the best web search agent in the world. You can get the best possible web search results from every corner of the internet. Your task is to find all the relevant websites which have resources which can help the user accomplish the task: {question}. Give links to each and every resource you mention. The links should be valid. Use the tools that you have to find those links"
+
+    web_search_agent = Agent(
+        role='Web Search Agent',
+        goal="To search the entire web for resources asked by the user",
+        backstory=web_search_prompt,
+        verbose=True,
+        tool=[SerperDevTool()],
+        llm=llm,
+        allow_delegation=True
+    )
+
+    web_search_task = Task(
+        description=f"Search the web for resources related to {question}",
+        agent=web_search_agent,
+        tool=[SerperDevTool()],
+        expected_output="Links for resources from the web relevant to the search queries."
+    )
+
+    # Create the Crew
+    crew = Crew(
+        tasks=[web_search_task],
+        agents=[web_search_agent],
+        verbose=True
+    )
+
+    # Execute the crew's tasks
     result = crew.kickoff()
     result_str = str(result)
 
