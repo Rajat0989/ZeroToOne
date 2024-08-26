@@ -1,7 +1,8 @@
-import { Button } from "../button"
+import Image from "next/image"
 import Logo from "../../../public/logo/logo.svg"
 import { Chivo } from "next/font/google"
 import Link from "next/link"
+import { Button } from "../button"
 
 const chivo = Chivo({ weight: "800", subsets: ["latin"] })
 
@@ -11,7 +12,7 @@ const Nav = () => {
       <div className="h-[3rem] max-w-[1536px] w-full flex items-center">
         <div className="w-full flex justify-between items-center px-6">
           <div className="flex items-center">
-            <Logo />
+            <Image src={Logo} alt="Flowx Logo" />
             <p className={`${chivo.className} text-xl px-3`}>flowx.ai</p>
           </div>
           <div className="md:flex items-center text-sm font-semibold hidden ">
@@ -25,19 +26,18 @@ const Nav = () => {
               <a href="/">About</a>
             </div>
             <div className="hidden md:flex gap-x-4">
-              <Link href='/pages/login'>
+              <Link href="/pages/login">
                 <Button variant={"outline"} className="bg-white rounded-full">
                   Login
                 </Button>
               </Link>
-              <Link href='/pages/signup'>
+              <Link href="/pages/signup">
                 <Button className="bg-blue-600 rounded-full hover:bg-blue-800">
                   Sign Up
                 </Button>
               </Link>
+            </div>
           </div>
-          </div>
-          
         </div>
       </div>
     </div>

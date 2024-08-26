@@ -1,11 +1,13 @@
-import Dashboard from "../pages/dashboard/page"
+import React from "react"
+import Docgen from "./doc_gen/page"
+import Dashboard from "./dashboard/page"
 
-const page = () => {
+const Page = () => {
   return (
-    <div className="">
+    <div>
       <Dashboard />
     </div>
   )
 }
 
-export default page
+export default Page

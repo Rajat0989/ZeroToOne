@@ -1,11 +1,12 @@
+"use client"
 import DashboardMain from "@/components/dashboard_main/page"
 import DashboardSidebar from "@/components/dashboard_sidebar/page"
 
 const Dashboard = () => {
   return (
     <div className="h-screen w-full flex">
-      <DashboardSidebar/>
-      <DashboardMain/>
+      <DashboardSidebar />
+      <DashboardMain />
     </div>
   )
 }

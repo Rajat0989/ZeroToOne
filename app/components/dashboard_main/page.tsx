@@ -20,7 +20,7 @@ const DashboardMain = () => {
         </div>
       </nav>
       <h3 className="px-4 py-2 text-4xl font-medium ">My Projects</h3>
-      <div className="px-4 py-2">list of projects....</div>
+      <div className="px-4 py-2">Recent Projects</div>
     </div>
   )
 }
