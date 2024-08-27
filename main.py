@@ -2,11 +2,12 @@ from fastapi import FastAPI
 from github import Github
 from pydantic import BaseModel
 import uvicorn
+from langchain_ollama import ChatOllama
 from crewai_tools import SerperDevTool, YoutubeVideoSearchTool, WebsiteSearchTool, YoutubeChannelSearchTool, ScrapeWebsiteTool
 from langchain_google_genai import ChatGoogleGenerativeAI
 from crewai import Agent, Task, Crew, Process
 
-llm = ChatGoogleGenerativeAI(model='gemini-1.5-pro', google_api_key="AIzaSyAL8tUpMNKe8xuJv_R4Jm1EW_Ti7cAdUQs")
+llm = ChatOllama(model='gemma2:2b', temperature=0)
 
 app = FastAPI()
 
@@ -83,7 +84,7 @@ async def get_everything():
         return {'response': 'LLM not initialized'}
 
     # Web Search Agent
-    web_search_prompt = f"You are the best web search agent in the world. You can get the best possible web search results from every corner of the internet. Your task is to find all the relevant websites which have resources which can help the user accomplish the task: {question}. Give links to each and every resource you mention. The links should be valid. Use the tools that you have to find those links"
+    web_search_prompt = f"You are the best web search agent in the world. You can get the best possible web search results from every corner of the internet. Your task is to find all the relevant websites which have resources which can help the user accomplish the task: {question}. Give links to each and every resource you mention. The links should be working well. No site that you mention should have page not found error. Use the tools that you have to find those links"
 
     web_search_agent = Agent(
         role='Web Search Agent',
