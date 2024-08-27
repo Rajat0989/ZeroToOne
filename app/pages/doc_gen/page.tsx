@@ -15,7 +15,7 @@ import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@
 
 const Docgen = () => {
   return (
-    <div className="h-screen w-full flex justify-center bg-[#F6F4EB]">
+    <div className="h-screen w-full flex justify-center bg-[#F2F9FC]">
       <div className="w-full max-w-[1280px] min-w-[440]">
         <div className="w-full flex justify-center mt-20">
           <AlertDialog>

@@ -3,7 +3,7 @@ import { Button } from "@/components/button"
 
 const Brainstorm = () => {
   return (
-    <div className="h-screen w-full flex justify-center bg-[#F6F4EB]">
+    <div className="h-screen w-full flex justify-center bg-[#F2F9FC]">
       <div className="w-full max-w-[1280px] min-w-[440]">
         <div className="mt-20 w-full flex justify-center">
           <div className="">

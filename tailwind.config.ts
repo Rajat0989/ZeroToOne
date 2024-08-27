@@ -1,22 +1,20 @@
 import type { Config } from "tailwindcss"
 
-const defaultTheme = require("tailwindcss/defaultTheme");
-const svgToDataUri = require("mini-svg-data-uri");
-const colors = require("tailwindcss/colors");
+const defaultTheme = require("tailwindcss/defaultTheme")
+const svgToDataUri = require("mini-svg-data-uri")
+const colors = require("tailwindcss/colors")
 const {
   default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
-
-
+} = require("tailwindcss/lib/util/flattenColorPalette")
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -61,6 +59,19 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        mint: {
+          50: "#EBF9FF",
+          100: "#D1F2FF",
+          200: "#A7E6FF",
+          300: "#70D7FF",
+          400: "#3DC8FF",
+          500: "#0ABAFF",
+          600: "#0096D1",
+          700: "#00719E",
+          800: "#004D6B",
+          900: "#002533",
+          950: "#001219"
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -83,7 +94,8 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"),
+  plugins: [
+    require("tailwindcss-animate"),
     addVariablesForColors,
     function ({ matchUtilities, theme }: any) {
       matchUtilities(
@@ -105,20 +117,20 @@ const config = {
           }),
         },
         { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
-      );
+      )
     },
   ],
 } satisfies Config
 
 function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
+  let allColors = flattenColorPalette(theme("colors"))
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
- 
+  )
+
   addBase({
     ":root": newVars,
-  });
+  })
 }
 
 export default config

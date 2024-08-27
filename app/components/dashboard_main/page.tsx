@@ -5,7 +5,7 @@ import { AvatarFallback } from "../avatar"
 
 const DashboardMain = () => {
   return (
-    <div className="h-screen w-full bg-[#F6F4EB]">
+    <div className="h-screen w-full bg-[#F2F9FC]">
       <nav className="w-full p-4 flex justify-between items-center gap-x-4">
         <Input
           placeholder="Search for a project"

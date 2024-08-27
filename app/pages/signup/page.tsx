@@ -6,7 +6,7 @@ const chivo = Chivo({ weight: "800", subsets: ["latin"] })
 
 const SignUp = () => {
   return (
-    <div className="w-full bg-[#F6F4EB]">
+    <div className="w-full bg-[#F2F9FC]">
       <div className="h-screen flex flex-col items-center justify-center ">
         <div className="mb-16 flex justify-center w-full items-center">
           <Logo />

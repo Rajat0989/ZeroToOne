@@ -10,35 +10,35 @@ import { Button } from "../button"
 
 const DashboardSidebar = () => {
   return (
-    <div className="h-screen w-[400px] bg-[#F6F4EB]">
+    <div className="h-screen w-[400px] bg-[#F2F9FC]">
       <div className="h-full w-full px-8 py-4 flex flex-col justify-between">
         <div className="">
           <div className="px-2 py-4">
             <Image src={Logo} alt="Logo" />
           </div>
           <div className="w-full flex flex-col">
-            <div className="font-medium px-2 py-4 border-b border-slate-300 flex items-center">
+            <div className="font-medium px-2 py-2 my-2 drop-shadow-md rounded-md flex items-center bg-white">
               <Image src={Plus} alt="Icon" className="h-8 w-8"></Image>
               <span className="ml-2">Create a team</span>
             </div>
             <a
               href="/pages/brainstorm"
-              className="font-medium px-2 py-4 border-b border-slate-300 flex items-center"
+              className="font-medium rounded-md drop-shadow-md my-2 bg-white px-2 py-2 flex items-center"
             >
               <Image src={Brainstorm} alt="Icon" className="h-8 w-8"></Image>
               <span className="ml-2">Brainstorm Ideas</span>
             </a>
-            <div className="font-medium px-2 py-4 border-b border-slate-300 flex items-center">
+            <div className="font-medium rounded-md drop-shadow-md my-2 bg-white px-2 py-2 flex items-center">
               <Image src={Roadmap} alt="Icon" className="h-8 w-8"></Image>
               <span className="ml-2">Generate Roadmap</span>
             </div>
-            <div className="font-medium px-2 py-4 border-b border-slate-300 flex items-center">
+            <div className="font-medium rounded-md drop-shadow-md my-2 bg-white px-2 py-2 flex items-center">
               <Image src={ChatWithCode} alt="Icon" className="h-8 w-8"></Image>
               <span className="ml-2">Chat with your Code</span>
             </div>
             <a
               href="/pages/doc_gen"
-              className="font-medium px-2 py-4 border-b border-slate-300 flex items-center"
+              className="font-medium rounded-md drop-shadow-md my-2 bg-white px-2 py-2 flex items-center"
             >
               <Image src={DocGen} alt="Icon" className="h-8 w-8"></Image>
               <span className="ml-2">Generate Report</span>

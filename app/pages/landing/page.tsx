@@ -7,7 +7,7 @@ import FAQs from "@/components/FAQs/page"
 
 const Landing = () => {
   return (
-    <div className="overflow-hidden h-full flex flex-col items-center justify-center bg-[#F6F4EB]">
+    <div className="overflow-hidden h-full flex flex-col items-center justify-center bg-[#F2F9FC]">
       <Nav />
       <Hero />
       <FAQs />

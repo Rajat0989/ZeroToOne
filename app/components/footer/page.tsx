@@ -1,5 +1,6 @@
 import Logo from "../../../public/logo/logo.svg"
 import { Chivo } from "next/font/google"
+import Image from "next/image"
 
 const chivo = Chivo({ weight: "800", subsets: ["latin"] })
 
@@ -58,7 +59,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex items-center mt-6">
-          <Logo />
+          <Image src={Logo} alt="logo"/>
           <p className={`${chivo.className} text-2xl px-3`}>flowx.ai</p>
         </div>
         </div>
